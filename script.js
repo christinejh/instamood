@@ -23,5 +23,39 @@ $(document).ready(function() {
 
 function handleResponse(response) {
   console.log(response);
-  // add stuff here!
+  var arrayLength = response.data.length;
+  for (var i = 0; i < arrayLength; i++) {
+    console.log(response.data[i].images.standard_resolution.url);
+
+//for loop, everytime adds image to div id
+
+// var images = $("#all-images");
+// var i;
+// for(i=0; i<20; i++) {
+//   .append(img src="response.data[i].images.standard_resolution.url"); 
+// }
+
+
+    //Do something
+    var url = response.data[i].images.standard_resolution.url; 
+
+    var instapic = '<img id="all-images" src="' + url + '"/>';
+    if( response.data[i].caption !== null ) {
+      var caption1 = response.data[i].caption.text;
+      console.log(caption1);
+    }
+    var caption = '<p' + caption1 + ' "> </p> '; 
+ $("#all-images").append(instapic)
+
+ $("#list").append(instapic);
+ $("#list").append(caption1);
+
+
+
+
+
 }
+}
+
+
+
